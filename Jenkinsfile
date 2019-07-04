@@ -12,6 +12,10 @@ pipeline {
  
 
                 stage('Second') {
+				      when {
+                        allOf { environment name: 'EXECUTE', value: 'True'}
+					  }
+								
                         steps {
                                 script {
                                         echo "Updating second stage"
