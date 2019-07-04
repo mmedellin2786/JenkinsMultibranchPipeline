@@ -1,20 +1,21 @@
 pipeline {
         agent any
                 stages {
-                        stage('One') {
+                        stage('First') {
                                 steps {
-                                        sh 'echo "Step One"'
+								        sh 'EXECUTE=True'
+										sh 'echo $EXECUTE'
                                 }
                         }
 
 
-                        stage('Two') {
+                        stage('Second') {
                                 steps {
-                                        sh 'echo "Step Two"'
+                                        sh 'echo "Updating second stage"'
                                 }
                         }
 
-                        stage('Three') {
+                        stage('Third') {
                                 steps {
                                         sh 'echo "Step Three"'
                                 }
