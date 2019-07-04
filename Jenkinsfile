@@ -19,6 +19,7 @@ pipeline {
                         steps {
                                 script {
                                         echo "Updating second stage"
+										env.EXECUTE = 'False'
                                         echo "${env.EXECUTE}"
                                 }
                         }
@@ -27,6 +28,13 @@ pipeline {
  
 
                 stage('Third') {
+				
+				        when {
+                                expression {
+                                        env.EXECUTE == 'True'
+                                }
+                        }
+						
                         steps {
                                 script {
                                         echo "Deploying yes"
